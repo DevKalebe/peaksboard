@@ -6,10 +6,13 @@
 <link rel="stylesheet" href="materialize/css/materialize.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="materialize/js/materialize.js"></script>
-
+<link rel="stylesheet" type="text/css" href="Css/StyleRegisterAdmin.css" />
 </head>
 <body>
-	<div class="row" style="margin: 0 auto; display: block;">	
+
+	<div class="row" style="margin: 0 auto; display: block;">
+	
+		<h1>Cadastrado Administrador</h1>	
 		<form class="col s5"  action="registerAdmin" method="post">	
 		<input type="hidden" name="id" th:value="${admin?.id}"/>
 			<div class="row" style="display: flex">
@@ -24,7 +27,7 @@
      		</div>
      		<div class="row">
         		<div class="input-field col s12">
-        			<input id="password" name="password" th:value="${admin?.password}" type="password" class="validate">
+        			<input id="password" name="password"  type="password" class="validate">
         			<label for="password">Password</label>
       			</div>
     		</div>
@@ -33,7 +36,5 @@
   		</div>
   		<div th:replace="fragments/mensagem">
   		</div>
-
-
 </body>
 </html>

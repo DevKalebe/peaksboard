@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;;
+}
+
+.erroMsg{
+	color: #BF0F0F;
+}
+
+.sucessoMsg{
+	color: #12BF6F;
+}

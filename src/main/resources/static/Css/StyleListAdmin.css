@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.pages{
+	position: absolute;
+	text-align:center;
+	align-content:center;
+	display:block;
+	bottom:0;
+	margin: 0 auto;	
+}
