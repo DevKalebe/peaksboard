@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="Css/StyleRegisterAdmin.css" />
 </head>
 <body>
-
+	<header th:replace="Fragments/padrao :: cabecalho"></header>
 	<div class="row" style="margin: 0 auto; display: block;">
 	
 		<h1>Cadastrado Administrador</h1>	
@@ -36,5 +36,6 @@
   		</div>
   		<div th:replace="fragments/mensagem">
   		</div>
+  		<footer th:replace="Fragments/padrao :: rodape"></footer>
 </body>
 </html>

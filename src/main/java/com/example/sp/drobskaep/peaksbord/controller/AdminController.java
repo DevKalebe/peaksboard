@@ -41,10 +41,7 @@ public class AdminController {
 		
 		
 		
-		// verifica se houver erros na aplicação
-		
-		
-		
+		// verifica se houver erros na aplicação	
 		if (result.hasErrors()) {
 			// adiciona uma mensagem de erro, caso estiver algo errado
 			attr.addFlashAttribute("messageErro","Verifique os campos...");
@@ -52,13 +49,40 @@ public class AdminController {
 		}
 		
 		// Validação de back para senha 
-	
 		int senhaValidacao = admin.getPassword().length();
 		
-		if (senhaValidacao < 6 || senhaValidacao > 20) {
-			attr.addFlashAttribute("messageErro","A senha não pode ser menor que 6 e nem maior que 20");
-		} else {
-			admin.setPassword(HashUtil.hash(admin.getPassword()));
+		// variavel para descobrir alteração ou inserção
+		boolean alteracao = admin.getId() != null ? true : false;
+		
+		if (!alteracao) {
+			if (senhaValidacao < 6 || senhaValidacao > 20) {
+				attr.addFlashAttribute("messageErro","A senha não pode ser menor que 6 e nem maior que 20");
+				return "redirect:formRegisterAdmin";
+				
+			} 
+		}
+		
+		// gera hash
+		admin.setPassword(HashUtil.hash(admin.getPassword()));
+		
+		// verificar se a senha está vazia, se estiver vazia vai ser gerada uma senha que pegara
+		// os caracters que estão antes do "@", e vai ser gerado uma senha
+		if (admin.getPassword().equals(HashUtil.hash(""))) {
+			if (!alteracao) {
+				// retira a parte antes do @
+				String parte = admin.getEmail().substring(0, admin.getEmail().indexOf("@"));
+				// "setar" a parte na senha do admin
+				admin.setPassword(parte);
+				
+			}else {
+				// nusca a senha atual no banco
+				String hash = adminRepository.findById(admin.getId()).get().getPassword();
+				
+				
+				// "setar" o hash na senha
+				admin.setSenhaComHash(hash);
+			}
+			
 		}
 		
 		try {
@@ -66,7 +90,7 @@ public class AdminController {
 			// salva no banco de dados
 			adminRepository.save(admin);
 			// adiciona uma mendagem de sucesso
-			attr.addFlashAttribute("messageSucesso","Adminstrador cadastrado com sucesso. ID: "+admin.getId()+"| Nome: "+admin.getName());
+			attr.addFlashAttribute("messageSucesso","Adminstrador cadastrado com sucesso. ID: "+admin.getId()+"| Nome: "+admin.getName()+ "\nCaso Úsuario não foi informado a senha é o endereço de e-mail antes do '@'");
 			
 		} catch (Exception e) {
 			attr.addFlashAttribute("messageErro","Houve um erro ao cadastrar"+e.getMessage());
@@ -115,7 +139,7 @@ public class AdminController {
 	private String excluirAdmin(Long id) {
 		
 		adminRepository.deleteById(id);
-		return "redirect:formRegisterAdmin";
+		return "redirect:listaAdmin/1";
 	}
 }
 
