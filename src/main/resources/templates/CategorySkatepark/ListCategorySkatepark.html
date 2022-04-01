@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" href="/materialize/css/materialize.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
+<script src="/materialize/js/materialize.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:replace="Fragments/padrao :: cabecalho"></header>
+
+<div class="row">
+	<form class="col s12" action="/listSearch" method="get">
+		<div class="input-field col s6">
+          <input placeholder="Placeholder" id="searchCategory" name="searchCategory" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+    <select name="choiceCategory">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="all">Buscar por todos</option>
+      <option value="categorys">Buscar por categorias</option>
+      <option value="levels">buscar por niveis de skatistas</option>
+      <option value="keyWords">Buscar por palavras chaves</option> 
+    </select>
+    <label>Materialize Select</label>
+  </div>
+  <div class="row">
+  	<button class="btn waves-effect waves-light" type="submit">Submit
+    		<i class="material-icons right">send</i>
+ 		</button>
+  </div>
+	</form>
+</div>
+
+<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Categoria de SkatePark</th>
+				<th>Nivel para a categoria</th>
+				<th>Palavras chaves</th>
+				<th>Alterar</th>
+				<th>Excluir</th>		
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="categorySk:${categorySkatepark}">
+				<td th:text="${categorySk.id}"/>
+				<td th:text="${categorySk.category}"/>
+				<td th:text="${categorySk.levelCategory}"/>
+				<td th:text="${categorySk.keyWord}"/>		
+				<td><a th:href="@{/changeCategory(id=${categorySk.id})}">Alterar</a></td>
+				<td><a th:attr="onclick=|return confirm('Deseja excluir o Administrador: ${categorySk.category}')|" th:href="@{/deleteCategory(id=${categorySk.id})}">Excluir</a></td>
+			</tr>
+		</tbody>
+	</table>
+<footer th:replace="Fragments/padrao :: rodape"></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" href="/materialize/css/materialize.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
+<script src="/materialize/js/materialize.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="Fragments/padrao :: cabecalho"></header>
+	<div class="row">
+	<h1>Informe o tipo de Pista que você deseja cadastrar</h1>
+    <form class="col s12" action="registerCategory" method="post">
+    <input type="hidden" name="id" th:value="${categorySkatepark?.id}"/>
+ 		<div class="row">
+ 			<div class="input-field col s12">
+          		<input placeholder="Informe a categoria" id="category" name="category" th:value="${categorySkatepark?.category}" type="text" class="validate">
+          		<label for="first_name">Informe a categoria de pista de skate</label>
+       		</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="input-field col s12">
+    		<select name="levelCategory">
+      			<option value="" disabled selected>Informe o nível para essa categoria</option>
+      			<option th:selected="${categorySkatepark?.levelCategory == 'qualquer'}" value="qualquer">Qualquer</option>
+      			<option th:selected="${categorySkatepark?.levelCategory == 'iniciante'}" value="iniciante">Iniciante</option>
+      			<option th:selected="${categorySkatepark?.levelCategory == 'profissional'}" value="profissional">Profissional</option>
+    		</select>
+    		<label>Materialize Select</label>
+  		</div>
+  		<div class="row">
+ 			<div class="input-field col s12">
+          		<input placeholder="Informe a categoria" id="keyWord" name="keyWord" th:value="${categorySkatepark?.keyWord}" type="text" class="validate">
+          		<label for="first_name">Informe as palavras chaves dessa categoria</label>
+       		</div>
+ 		</div>
+ 		</div>
+ 		
+ 		
+ 		<button class="btn waves-effect waves-light" type="submit">Submit
+    		<i class="material-icons right">send</i>
+ 		</button>
+    </form>
+  </div>
+  <div th:replace="fragments/mensagem"></div>
+	<footer th:replace="Fragments/padrao :: rodape"></footer>
+</body>
+</html>
