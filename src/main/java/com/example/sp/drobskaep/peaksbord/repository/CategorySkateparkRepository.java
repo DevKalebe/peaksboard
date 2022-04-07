@@ -10,6 +10,8 @@ import com.example.sp.drobskaep.peaksbord.model.CategorySkatepark;
 
 public interface CategorySkateparkRepository extends PagingAndSortingRepository<CategorySkatepark, Long>{
 	
+	public List<CategorySkatepark> findAllByOrderByCategoryAsc();
+	
 	@Query("SELECT ck FROM CategorySkatepark ck WHERE ck.category LIKE %:all% OR ck.levelCategory LIKE %:all% OR ck.keyWord LIKE %:all%")
 	public List<CategorySkatepark> findEverything(@Param("all") String all);
 	

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" href="/materialize/css/materialize.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
+<script src="/materialize/js/materialize.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="Fragments/padrao :: headSkatepark"></header>
+	<main class="sizeMain">
+		<div class="row">
+		<form class="col s12" action="COLOQUE O METHOD DE CADASTRAR KALEBINHO" method="post">
+			<input type="hidden" name="id" th:value="${Skatepark?.id}"/>
+			<div class="row">
+				<div class="input-field col s12">
+          		<input placeholder="Informe o nome" id="nameSkatepark" name="nameSk" th:value="${skatepark?.nameSk}" type="text" class="validate">
+          		<label for="first_name">Nome</label>
+       			</div>
+			</div>
+			<div class="row">
+				<select name="categorySk.categorys.id">
+      			<option value="" disabled selected>Informe a categoria da Skatepark</option>
+      			
+      			<option th:each="c:${categorys}" th:text="${c.category}" th:value="${c.id}"></option>
+      			
+    		</select>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+    			<select name="spaceSk">
+      				<option value="" disabled selected>Informe o tamanho</option>
+      				<option th:selected="${skatepark?.spaceSk == 'pequeno'}" value="pequeno">Pequeno</option>
+      				<option th:selected="${skatepark?.spaceSk == 'medio'}" value="medio">Médio</option>
+      				<option th:selected="${skatepark?.spaceSk == 'grande'}" value="grande">Grande</option>
+    			</select>
+    			<label>Tamanho do espaço</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+          			<input placeholder="Informe o horário" id="timeSk" name="timeSk" th:value="${skatepark?.timeSk}" type="text" class="validate">
+          			<label for="first_name">Horário</label>
+       			</div>
+			</div>
+			
+			<div class="row">
+				<div class="input-field col s12">
+          			<input placeholder="Informe o CEP" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="cepSk" th:value="${skatepark?.cepSk}" type="text" class="validate">
+          			<label for="first_name">CEP</label>
+       			</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+          			<input placeholder="Informe o Endereço" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="addressSk" th:value="${skatepark?.addressSk}" type="text" class="validate">
+          			<label for="first_name">Endereço</label>
+       			</div>	
+				<div class="input-field col s6">
+					<input placeholder="Informe um complemento" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="complementSk" th:value="${skatepark?.complementSk}" type="text" class="validate">
+          			<label for="first_name">Complemento</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+          			<input placeholder="Informe a cidade" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="citySk" th:value="${skatepark?.citySk}" type="text" class="validate">
+          			<label for="first_name">Cidade</label>
+       			</div>
+       			<div class="input-field col s6">
+          			<input placeholder="Informe o estado" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="stateSk" th:value="${skatepark?.stateSk}" type="text" class="validate">
+          			<label for="first_name">Estado</label>
+       			</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="Informe palavras chaves" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="keyWordSk" th:value="${skatepark?.keyWordSk}" type="text" class="validate">
+          			<label for="first_name">Palavras Chave</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+    			<select name="materialSk">
+      				<option value="" disabled selected>Informe o material</option>
+      				<option th:selected="${skatepark?.materialSk == 'madeira'}" value="madeira">Pequeno</option>
+      				<option th:selected="${skatepark?.materialSk == 'cimento'}" value="cimento">Cimento</option>
+    			</select>
+    			<label>Como é feita</label>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="input-field col s12">
+    			<select name="accessSk">
+      				<option value="" disabled selected>Informe o tamanho</option>
+      				<option th:selected="${skatepark?.accessSk == 'privado'}" value="privado">Privado</option>
+      				<option th:selected="${skatepark?.accessSk == 'publico'}" value="publico">Público</option>
+    			</select>
+    			<label>Acesso ao espaço</label>
+				</div>
+			</div>
+      		<div class="row">
+        		<div class="input-field col s12">
+          			<textarea id="textarea1" class="materialize-textarea" th:text="${skatepark?.descSk}" name="descSk"></textarea>
+          			<label for="textarea1">Descrição</label>
+        		</div>
+      		</div>
+      		<div class="file-field input-field">
+      			<div class="btn">
+        		<span>File</span>
+        		<input type="file" multiple>
+      		</div>
+      		<div class="file-path-wrapper">
+        		<input class="file-path validate" type="text" placeholder="Upload one or more files">
+      		</div>
+    		</div>
+		</form>
+		</div>
+	</main>
+	<footer th:replace="Fragments/padrao :: rodape"></footer>
+</body>
+</html>
