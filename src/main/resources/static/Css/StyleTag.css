@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+/* Style Head*/
+
+.headSkatepark{
+	width: 100%;
+	padding: 0.1rem 1.5rem;
+	background:#000000;
+	margin-bottom: 1rem;
+}
+
+/* Style Footer */
+
+.footerSkatepark{
+	width: 100%;
+	background:#000000;
+}
+
+.Footer-Low{
+	position: absolute;
+	bottom: 0;
+}

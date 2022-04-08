@@ -4,6 +4,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
+<!-- Link do CSS Tags-->
+<link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
 <script src="/materialize/js/materialize.js"></script>
 <head>
 <meta charset="UTF-8">
@@ -13,8 +15,8 @@
 	<header th:replace="Fragments/padrao :: headSkatepark"></header>
 	<main class="sizeMain">
 		<div class="row">
-		<form class="col s12" action="COLOQUE O METHOD DE CADASTRAR KALEBINHO" method="post">
-			<input type="hidden" name="id" th:value="${Skatepark?.id}"/>
+		<form class="col s12" action="saveSkatepark" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" th:value="${skatepark?.id}"/>
 			<div class="row">
 				<div class="input-field col s12">
           		<input placeholder="Informe o nome" id="nameSkatepark" name="nameSk" th:value="${skatepark?.nameSk}" type="text" class="validate">
@@ -22,12 +24,12 @@
        			</div>
 			</div>
 			<div class="row">
-				<select name="categorySk.categorys.id">
-      			<option value="" disabled selected>Informe a categoria da Skatepark</option>
-      			
-      			<option th:each="c:${categorys}" th:text="${c.category}" th:value="${c.id}"></option>
-      			
-    		</select>
+				<div class="input-field col s12">
+					<select name="category.id">
+      				<option value="" disabled selected>Informe a categoria da Skatepark</option>
+      				<option th:each="c:${categorys}" th:text="${c.category}" th:value="${c.id}"></option>			
+    				</select>
+				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
@@ -49,33 +51,33 @@
 			
 			<div class="row">
 				<div class="input-field col s12">
-          			<input placeholder="Informe o CEP" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="cepSk" th:value="${skatepark?.cepSk}" type="text" class="validate">
+          			<input placeholder="Informe o CEP" id="cep" name="cepSk" th:value="${skatepark?.cepSk}" type="text" class="validate">
           			<label for="first_name">CEP</label>
        			</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-          			<input placeholder="Informe o Endereço" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="addressSk" th:value="${skatepark?.addressSk}" type="text" class="validate">
+          			<input placeholder="Informe o Endereço" id="logradouro" name="addressSk" th:value="${skatepark?.addressSk}" type="text" class="validate">
           			<label for="first_name">Endereço</label>
        			</div>	
 				<div class="input-field col s6">
-					<input placeholder="Informe um complemento" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="complementSk" th:value="${skatepark?.complementSk}" type="text" class="validate">
+					<input placeholder="Informe um complemento" id="complemento" name="complementSk" th:value="${skatepark?.complementSk}" type="text" class="validate">
           			<label for="first_name">Complemento</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-          			<input placeholder="Informe a cidade" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="citySk" th:value="${skatepark?.citySk}" type="text" class="validate">
+          			<input placeholder="Informe a cidade" id="localidade" name="citySk" th:value="${skatepark?.citySk}" type="text" class="validate">
           			<label for="first_name">Cidade</label>
        			</div>
        			<div class="input-field col s6">
-          			<input placeholder="Informe o estado" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="stateSk" th:value="${skatepark?.stateSk}" type="text" class="validate">
+          			<input placeholder="Informe o estado" id="uf" name="stateSk" th:value="${skatepark?.stateSk}" type="text" class="validate">
           			<label for="first_name">Estado</label>
        			</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Informe palavras chaves" id="COLOCAR QUANDO FOR COLOCAR O JSON" name="keyWordSk" th:value="${skatepark?.keyWordSk}" type="text" class="validate">
+					<input placeholder="Informe palavras chaves" id="keyWordsk" name="keyWordSk" th:value="${skatepark?.keyWordSk}" type="text" class="validate">
           			<label for="first_name">Palavras Chave</label>
 				</div>
 			</div>
@@ -105,18 +107,30 @@
           			<label for="textarea1">Descrição</label>
         		</div>
       		</div>
-      		<div class="file-field input-field">
+      		
+      		<div class="row">
+      			<div class="input-field col s12">
+      				<div class="file-field input-field">
       			<div class="btn">
-        		<span>File</span>
-        		<input type="file" multiple>
-      		</div>
-      		<div class="file-path-wrapper">
-        		<input class="file-path validate" type="text" placeholder="Upload one or more files">
-      		</div>
+        			<span>Fotos</span>
+        			<input type="file" multiple name="photoSk">
+      			</div>
+      		
+      			<div class="file-path-wrapper">
+        			<input class="file-path validate" type="text" placeholder="Upload one or more files" >
+      			</div>
     		</div>
+      			</div>
+      		</div>
+      		
+      		
+    		<button class="btn waves-effect waves-light" type="submit">Submit
+    			<i class="material-icons right">send</i>
+  			</button>
 		</form>
 		</div>
 	</main>
-	<footer th:replace="Fragments/padrao :: rodape"></footer>
+	<footer th:replace="Fragments/padrao :: footerHigh"></footer>
+	<script type="text/javascript" src="Js/scriptJsonCep.js"></script>
 </body>
 </html>

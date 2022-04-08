@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	
-  <nav th:fragment="headSkatepark">
-    	<div class="nav-wrapper">
-      		<a href="#" class="brand-logo">Logo</a>
-      		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a href="sass.html">Sass</a></li>
-        		<li><a href="badges.html">Components</a></li>
-        		<li><a href="collapsible.html">JavaScript</a></li>
-      		</ul>
-   	 	</div>
-  </nav>
+<nav th:fragment="headSkatepark" class="headSkatepark">
+	<div class="nav-wrapper">
+    	<a href="#" class="brand-logo">Logo</a>
+      	<ul id="nav-mobile" class="right hide-on-med-and-down">
+        	<li><a href="formRegisterAdmin">Admin</a></li>
+        	<li><a href="FormRegisterCategory">Categorias</a></li>
+        	<li><a href="registerSkatepark">SkatePark</a></li>
+      	</ul>
+   	 </div>
+</nav>
   
-   <footer class="page-footer" th:fragment="rodape" >
+<!-- Footer pages pequenas -->  
+  
+<footer class="page-footer footerSkatepark Footer-Low" th:fragment="rodape">
+	<div class="footer-copyright">
+    	<div class="container">
+        	© 2022 Copyright PeaksBord
+            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+        </div>
+	</div>
+</footer>
 
-          <div class="footer-copyright">
-            <div class="container">
-            � 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
-  
+<!-- Footer pages Grandes -->
+
+<footer class="page-footer footerSkatepark Footer-High" th:fragment="footerHigh">
+	<div class="footer-copyright">
+    	<div class="container">
+        	© 2022 Copyright PeaksBord
+            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+        </div>
+	</div>
+</footer>
+
+<!-- Footer pages Pequenas -->
+
+<footer class="page-footer footerSkatepark" th:fragment="footerLow">
+	<div class="footer-copyright">
+    	<div class="container">
+        	© 2022 Copyright PeaksBord
+            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+        </div>
+	</div>
+</footer>
+
 </body>
 </html>

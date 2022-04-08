@@ -15,7 +15,7 @@ import lombok.Data;
 public class SkatePark {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String nameSk;
 	private String spaceSk;
 	private String timeSk;

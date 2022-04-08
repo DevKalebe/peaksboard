@@ -1,14 +1,11 @@
 @charset "UTF-8";
 
 .pages{
+	display:block;
+	margin: 0 auto;	
 	position: absolute;
+	bottom:0;
 	text-align:center;
 	align-content:center;
-	display:block;
-	bottom:0;
-	margin: 0 auto;	
 }
 
-.sizeMain{
-	height: 100vh;
-}
