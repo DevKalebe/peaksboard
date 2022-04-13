@@ -3,52 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- Link do CSS Tags-->
+<link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
 </head>
 <body>
 	
-<nav th:fragment="headSkatepark" class="headSkatepark">
-	<div class="nav-wrapper">
-    	<a href="#" class="brand-logo">Logo</a>
-      	<ul id="nav-mobile" class="right hide-on-med-and-down">
-        	<li><a href="formRegisterAdmin">Admin</a></li>
-        	<li><a href="FormRegisterCategory">Categorias</a></li>
-        	<li><a href="registerSkatepark">SkatePark</a></li>
-      	</ul>
-   	 </div>
-</nav>
-  
-<!-- Footer pages pequenas -->  
-  
-<footer class="page-footer footerSkatepark Footer-Low" th:fragment="rodape">
-	<div class="footer-copyright">
-    	<div class="container">
-        	© 2022 Copyright PeaksBord
-            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+<header class="header-Main" th:fragment="headPeaksboard">
+        <div class="Left-Header">
+            <h1>PeaksBoard</h1>
+            <h2>Olá Administrador</h2>
         </div>
-	</div>
+        <div class="Right-Header">
+            <nav class="Menu"><!-- Não colocar como Nav pois vai pegar o css do materialize -->
+                <ul>
+                    <a href="formRegisterAdmin"><li>Administradores</li></a>
+                    <a href="FormRegisterCategory"><li>Categorias</li></a>
+                    <a href="registerSkatepark"><li>Skateparks</li></a>
+                </ul>
+            </nav>
+            <img src="ImagesFragments/wheelHeader.png" alt="Image de uma roda de skate no header" />     
+        </div>
+</header>
+	
+<footer class="footer-main Footer-Low" th:fragment="footerPeaksboard-Low">
+        <div class="left-footer">
+            <img src="ImagesFragments//wheelFooter.png" alt="Image e uma roda de skate no footer">
+            <p>In search of the nearest skateboarding adrenaline</p>
+        </div>
+        <div class="right-footer">
+            <p>© 2022 - PeaksBoard
+            </p>
+        </div>
 </footer>
 
-<!-- Footer pages Grandes -->
-
-<footer class="page-footer footerSkatepark Footer-High" th:fragment="footerHigh">
-	<div class="footer-copyright">
-    	<div class="container">
-        	© 2022 Copyright PeaksBord
-            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+<footer class="footer-main" th:fragment="footerPeaksboard">
+        <div class="left-footer">
+            <img src="ImagesFragments//wheelFooter.png" alt="Image e uma roda de skate no footer">
+            <p>In search of the nearest skateboarding adrenaline</p>
         </div>
-	</div>
-</footer>
-
-<!-- Footer pages Pequenas -->
-
-<footer class="page-footer footerSkatepark" th:fragment="footerLow">
-	<div class="footer-copyright">
-    	<div class="container">
-        	© 2022 Copyright PeaksBord
-            <a class="grey-text text-lighten-4 right" href="#!">Página principal SpeakBoard</a>
+        <div class="right-footer">
+            <p>© 2022 - PeaksBoard
+            </p>
         </div>
-	</div>
 </footer>
-
 </body>
 </html>

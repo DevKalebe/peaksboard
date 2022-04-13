@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<link rel="stylesheet" href="/materialize/css/materialize.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
-<script src="/materialize/js/materialize.js"></script>
+
 <!-- Link do CSS Tags-->
 <link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
 <head>
@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:replace="Fragments/padrao :: headSkatepark"></header>
+	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
 	<div class="row">
 	<h1>Informe o tipo de Pista que você deseja cadastrar</h1>
     <form class="col s12" action="registerCategory" method="post">
@@ -48,6 +48,6 @@
     </form>
   </div>
   <div th:replace="fragments/mensagem"></div>
-	<footer th:replace="Fragments/padrao :: rodape"></footer>
+	<footer th:replace="Fragments/padrao :: footerPeaksboard-Low"/>
 </body>
 </html>

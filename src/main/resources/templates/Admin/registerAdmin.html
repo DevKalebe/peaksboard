@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="materialize/css/materialize.css">
+<!-- Link Jquare -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="materialize/js/materialize.js"></script>
+<!-- Link Style Register Admin -->
 <link rel="stylesheet" type="text/css" href="Css/StyleRegisterAdmin.css" />
 <!-- Link do CSS Tags-->
 <link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
 </head>
 <body>
-	<header th:replace="Fragments/padrao :: headSkatepark"></header>
+	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
 	<div class="row" style="margin: 0 auto; display: block;">
 	
 		<h1>Cadastrado Administrador</h1>	
@@ -38,6 +38,7 @@
   		</div>
   		<div th:replace="fragments/mensagem">
   		</div>
-  		<footer th:replace="Fragments/padrao :: rodape"></footer>
+  		
+  		<footer th:replace="Fragments/padrao :: footerPeaksboard-Low"/>
 </body>
 </html>

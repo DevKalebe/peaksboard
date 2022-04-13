@@ -1,19 +1,124 @@
 @charset "ISO-8859-1";
 
-/* Style Head*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.headSkatepark{
-	width: 100%;
-	padding: 0.1rem 1.5rem;
-	background:#000000;
-	margin-bottom: 1rem;
+@font-face {
+    font-family: Urban-Blocker-Solid;
+    src: url(../Fonts/Urban-Blocker-Solid.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(../Fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Condensed;
+    src: url(../Fonts/Roboto-Condensed.ttf);
+}
+
+/* Header styling */
+
+.header-Main{
+    width: 100%;
+    background-color:#0D0D0D;
+    display: flex;
+    justify-content:space-between;
+    padding: 1.2em 2em;
+    border-radius: 0 0 2em 0;
+}
+
+.Left-Header{
+    width: 40%;
+}
+
+.Left-Header h1{
+    font-family: Urban-Blocker-Solid;
+    color: #fff;
+    font-size:6vw;
+    font-weight: lighter;
+}
+
+.Left-Header h2{
+    font-family: Roboto-Condensed;
+    font-size:2vw;
+    color: #8C8B88;
+}
+
+.Right-Header{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Menu{
+    align-items: center;
+    margin: auto;
+}
+
+.Menu ul{ 
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.Menu li{
+    display: block;
+    float: left;
+    font-size: 2vw;
+    margin: 0.5em;
+    color: #fff;
+    font-family: Roboto-Bold;
+    cursor: pointer;
+}
+
+
+.Menu li:hover{
+    color: #8C8B88;
+    margin-bottom: 0.2em #A63F03 solid;
 }
 
 /* Style Footer */
 
-.footerSkatepark{
-	width: 100%;
-	background:#000000;
+/* Footer styling */
+
+.footer-main{
+    width: 100%;
+    background-color:#0D0D0D;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    font-family: Roboto-Bold;
+    color: #fff;
+}
+
+.left-footer{
+    width: 52%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-footer p{
+    display: block;
+    margin: auto 0;
+    font-size:2vw; 
+    white-space: nowrap;
+}
+
+.right-footer{
+    display: block;
+    margin: auto 0;
+}
+
+.right-footer p{
+    align-items: center;
+    font-size:1.7vw;
 }
 
 .Footer-Low{
