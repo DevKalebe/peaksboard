@@ -33,6 +33,17 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
+    			<select name="levelSk">
+      				<option value="" disabled selected>Informe o nível</option>
+      				<option th:selected="${skatepark?.levelSk == 'qualquer'}" value="qualquer">Qualquer</option>
+      				<option th:selected="${skatepark?.levelSk == 'iniciante'}" value=iniciante>Iniciante</option>
+      				<option th:selected="${skatepark?.levelSk == 'profissional'}" value="profissional">Profissional</option>
+    			</select>
+    			<label>Nível</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
     			<select name="spaceSk">
       				<option value="" disabled selected>Informe o tamanho</option>
       				<option th:selected="${skatepark?.spaceSk == 'pequeno'}" value="pequeno">Pequeno</option>
