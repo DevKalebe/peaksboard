@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" href="/materialize/css/materialize.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
+<script src="/materialize/js/materialize.js"></script>
+<!-- Link do CSS Tags-->
+<link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Espaço</th>
+				<th>Horário</th>
+				<th>CEP</th>
+				<th>Endereço</th>
+				<th>Cidade</th>
+				<th>Estado</th>
+				<th>Complemento</th>
+				<th>Level</th>
+				<th>palavras chaves</th>
+				<th>Material</th>
+				<th>Acesso</th>
+				<th>Descrição</th>
+				<th>Alterar</th>
+				<th>Excluir</th>		
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="sk:${parks}">
+				<td th:text="${sk.id}"/>
+				<td th:text="${sk.nameSk}"/>
+				<td th:text="${sk.categorySk.category}"></td>
+				<td th:text="${sk.spaceSk}"/>
+				<td th:text="${sk.timeSk}"/>
+				<td th:text="${sk.cepSk}"/>
+				<td th:text="${sk.addressSk}"/>
+				<td th:text="${sk.citySk}"/>
+				<td th:text="${sk.stateSk}"/>
+				<td th:text="${sk.complementSk}"/>
+				<td th:text="${sk.levelSk}"/>
+				<td th:text="${sk.keyWordSk}"/>
+				<td th:text="${sk.materialSk}"/>
+				<td th:text="${sk.accessSk}"/>
+				<td th:text="${sk.descSk}"/>
+				<td><a th:href="@{/alterarSkatepark(id=${sk.id})}">Alterar</a></td>
+				<td><a th:attr="onclick=|return confirm('Deseja excluir a Skatepark: ${sk.nameSk}')|" th:href="@{/excluirSkatepark(id=${sk.id})}">Excluir</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="pages">
+		<ul class="pagination">
+    		<li th:class="${pagAtual == 1 ? 'disable' : 'waves-effect'}">
+    			<a th:href="${pagAtual > 1 ? pagAtual - 1 : '#'}"><i class="material-icons">chevron_left</i></a>
+    		</li>
+    		
+    		<li th:class="${pagAtual == p ? 'active blue' : waves-effect}" th:each="p:${numPaginas}">
+    			<a th:href="${p}"><span th:text="${p}"/></a>
+    		</li>
+    		
+    		<li th:class="${pagAtual == totalPags ? 'disable' : 'waves-effect'}">
+    			<a th:href="${pagAtual < totalPags ? pagAtual + 1 : '#'}"><i class="material-icons">chevron_right</i></a>
+    		</li>
+  		</ul>
+	</div>
+	
+</body>
+
+
+</html>

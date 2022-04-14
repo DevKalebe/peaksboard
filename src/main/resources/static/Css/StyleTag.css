@@ -24,64 +24,64 @@
 /* Header styling */
 
 .header-Main{
-    width: 100%;
-    background-color:#0D0D0D;
-    display: flex;
-    justify-content:space-between;
-    padding: 1.2em 2em;
-    border-radius: 0 0 2em 0;
+    width: 100% !important;
+    background-color:#0D0D0D !important;
+    display: flex !important;
+    justify-content:space-between !important;
+    padding: 1.2em 2em !important;
+    border-radius: 0 0 2em 0 !important;
 }
 
 .Left-Header{
-    width: 40%;
+    width: 40% !important;
 }
 
 .Left-Header h1{
-    font-family: Urban-Blocker-Solid;
-    color: #fff;
-    font-size:6vw;
-    font-weight: lighter;
+    font-family: Urban-Blocker-Solid !important;
+    color: #fff !important;
+    font-size:6vw !important;
+    font-weight: lighter !important;
 }
 
 .Left-Header h2{
-    font-family: Roboto-Condensed;
-    font-size:2vw;
-    color: #8C8B88;
+    font-family: Roboto-Condensed !important;
+    font-size:2vw !important;
+    color: #8C8B88 !important;
 }
 
 .Right-Header{
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
+    width: 60% !important;
+    display: flex !important;
+    justify-content: space-between !important;
 }
 
 .Menu{
-    align-items: center;
-    margin: auto;
+    align-items: center !important;
+    margin: auto !important;
 }
 
 .Menu ul{ 
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    display: inline-block !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
 .Menu li{
-    display: block;
-    float: left;
-    font-size: 2vw;
-    margin: 0.5em;
-    color: #fff;
-    font-family: Roboto-Bold;
-    cursor: pointer;
+    display: block !important;
+    float: left !important;
+    font-size: 2vw !important;
+    margin: 0.5em !important;
+    color: #fff !important;
+    font-family: Roboto-Bold !important;
+    cursor: pointer !important;
 }
 
 
 .Menu li:hover{
-    color: #8C8B88;
-    margin-bottom: 0.2em #A63F03 solid;
+    color: #8C8B88 !important;
+    margin-bottom: 0.2em #A63F03 solid !important;
 }
 
 /* Style Footer */
@@ -90,38 +90,38 @@
 
 .footer-main{
     width: 100%;
-    background-color:#0D0D0D;
+    background-color:#0D0D0D !important;
     display: flex;
-    justify-content: space-between;
-    padding: 1em 2em;
-    font-family: Roboto-Bold;
+    justify-content: space-between !important;
+    padding: 1em 2em !important;
+    font-family: Roboto-Bold !important;
     color: #fff;
 }
 
 .left-footer{
-    width: 52%;
+    width: 52% !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 .left-footer p{
-    display: block;
-    margin: auto 0;
-    font-size:2vw; 
-    white-space: nowrap;
+    display: block !important;
+    margin: auto 0 !important;
+    font-size:2vw !important; 
+    white-space: nowrap !important;
 }
 
 .right-footer{
-    display: block;
-    margin: auto 0;
+    display: block !important;
+    margin: auto 0 !important;
 }
 
 .right-footer p{
-    align-items: center;
-    font-size:1.7vw;
+    align-items: center !important;
+    font-size:1.7vw !important;
 }
 
 .Footer-Low{
-	position: absolute;
-	bottom: 0;
+	position: absolute !important;
+	bottom: 0 !important;
 }

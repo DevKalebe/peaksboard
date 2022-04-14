@@ -32,7 +32,7 @@ public class AdminController {
 	@RequestMapping("formRegisterAdmin")
 	public String formRegisterAdmin() {
 		
-		return "admin/registerAdmin";
+		return "Admin/registerAdmin";
 	}
 	
 	// Requst ,apping para salvar o admin, do tipo post
@@ -117,8 +117,7 @@ public class AdminController {
 		// preencher o list com as páginas
 		for(int i = 1; i <= totalPages; i++) {
 			// adiciona a página ao list
-			numPaginas.add(i);
-		}
+			numPaginas.add(i);		}
 		// adiciona os valores na model
 		model.addAttribute("numPaginas", numPaginas);
 		model.addAttribute("totalPags", totalPages);

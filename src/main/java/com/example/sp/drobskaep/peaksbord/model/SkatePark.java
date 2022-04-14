@@ -34,4 +34,9 @@ public class SkatePark {
 	private String descSk;
 	@Column(columnDefinition = "TEXT")
 	private String photo;
+	
+	// retorna as fotos na forma de vetor de String 
+	public String[] verFotos() {
+		return photo.split(";");
+	}
 }
