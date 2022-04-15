@@ -6,4 +6,5 @@ import com.example.sp.drobskaep.peaksbord.model.Administrador;
 
 public interface AdminRepository extends PagingAndSortingRepository<Administrador, Long>{
 	
+	public Administrador findByEmailandPassword(String email, String password);
 }

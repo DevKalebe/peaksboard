@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,6 +140,27 @@ public class AdminController {
 		
 		adminRepository.deleteById(id);
 		return "redirect:listaAdmin/1";
+	}
+	
+	// metodo de login
+	
+	
+	
+	@RequestMapping("login")
+	public String login(Administrador admLogin, RedirectAttributes attr, HttpSession session){
+		// busca o Admin no banco
+		Administrador admin = adminRepository.findByEmailandPassword(admLogin.getEmail(), admLogin.getPassword());
+		// verifica se existe
+		if (admin == null) {
+			attr.addFlashAttribute("messageErro", "Login e/ou senha inválida(s)");
+			return "redirect:/";
+		}else {
+			// salva o adminstrador na sessão
+			session.setAttribute("usuarioLogado", admin);
+			return "redirect:/listaSkatepark/1";
+		}
+		
+		
 	}
 }
 

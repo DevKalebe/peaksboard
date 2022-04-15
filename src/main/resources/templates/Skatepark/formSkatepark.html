@@ -17,6 +17,7 @@
 		<div class="row">
 		<form class="col s12" action="saveSkatepark" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" th:value="${skatepark?.id}"/>
+			<input type="hidden" name="photo" th:value="${skatepark?.photo}"/>
 			<div class="row">
 				<div class="input-field col s12">
           		<input placeholder="Informe o nome" id="nameSkatepark" name="nameSk" th:value="${skatepark?.nameSk}" type="text" class="validate">
@@ -136,11 +137,15 @@
       			<h6>Fotos cadastradas</h6>
       			<div>
       				<ul>
-      					<li th:each="f : ${skatepark.verFotos()}">
+      					<li th:each="f, i : ${skatepark.verFotos()}">
       						<a th:href="${f}" target="_blank"><img th:src="${f}"/></a>
+      						<!-- Excluir Foto -->
+      						<a th:href="@{/excluirFotos(idSk=${skatepark?.id}, numFoto=${i.index})}">Excluir Foto</a>
       					</li>
       				</ul>
       			</div>
+      			
+      			
       		</div>
       		
     		<button class="btn waves-effect waves-light" type="submit">Submit
