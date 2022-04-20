@@ -16,49 +16,48 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Link Style Register Admin -->
-<link rel="stylesheet" type="text/css" href="Css/StyleRegisterAdmin.css" />
+<link rel="stylesheet" type="text/css" href="../Css/StyleRegisterAdmin.css" />
 <!-- Link do CSS Tags-->
 <link rel="stylesheet" type="text/css" href="/Css/StyleTag.css" />
 </head>
 <body>
-	
-	
-		<header th:replace="Fragments/padrao :: headPeaksboard"></header>
-		<h1>Cadastrado Administrador</h1>
-	<form class="formulario" action="registerAdmin" method="post">	
+	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
+	<main class="Main-Register">
+	<h1>Cadastrado Administrador</h1>
+	<form class="formulario Form-Register" action="registerAdmin" method="post">	
 		<div class="container">
-			
 			<input type="hidden" name="id" th:value="${admin?.id}" />
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="form-floating">
-						<input id="name" name="name" th:value="${admin?.name}" type="text"
-							class="form-control" autofocus> <label for="first_name">First
-							Name</label>
+						<div class="form-floating div-input">
+							<input id="name" name="name" th:value="${admin?.name}" type="text" class="form-control" autofocus>
+							<label for="first_name">First Name</label>
 						</div>
 					</div>
 					<div class="col">
-						<div class="form-floating">
-						<input id="email" name="email" th:value="${admin?.email}"
-							type="email" class="form-control"> <label for="email">Email</label>
+						<div class="form-floating div-input">
+							<input id="email" name="email" th:value="${admin?.email}" type="email" class="form-control">
+							<label for="email">Email</label>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="form-floating">
-				<input id="password" name="password" type="password"
-					class="form-control"> <label for="password">Password</label>
+			</div>	
+			<div class="col">
+				<div class="form-floating div-input">
+					<input id="password" name="password" type="password" class="form-control">
+					<label for="password">Password</label>
+				</div>
 			</div>
 		</div>
-		
-		<div class="d-grid gap-2 col-6 mx-auto">
+		<div class="d-grid gap-2 col-1 mx-auto">
   			<button class="btn btn-primary" type="submit">Cadastrar</button>
 		</div>
 	</form>
 
 	<div th:replace="fragments/mensagem"></div>
+	
+	</main>
 	
 	<footer th:replace="Fragments/padrao :: footerPeaksboard-Low" />
 	<!-- Script Bootstrap -->

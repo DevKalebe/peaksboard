@@ -149,7 +149,7 @@ public class AdminController {
 	@RequestMapping("login")
 	public String login(Administrador admLogin, RedirectAttributes attr, HttpSession session){
 		// busca o Admin no banco
-		Administrador admin = adminRepository.findByEmailandPassword(admLogin.getEmail(), admLogin.getPassword());
+		Administrador admin = adminRepository.findByEmailAndPassword(admLogin.getEmail(), admLogin.getPassword());
 		// verifica se existe
 		if (admin == null) {
 			attr.addFlashAttribute("messageErro", "Login e/ou senha inválida(s)");

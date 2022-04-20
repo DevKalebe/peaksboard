@@ -37,10 +37,10 @@ public class Administrador {
 	@NotEmpty(message="O campo de senha está vazio")
 	private String password;
 	
-	// se caso não precisase de uma validação do back setava o hash aqui 
-//	public void setPassword(String senha) {
-//		this.password = HashUtil.hash(password);
-//	}
+	// 	se caso não precisase de uma validação do back setava o hash aqui 
+	//	public void setPassword(String senha) {
+	//	this.password = HashUtil.hash(password);
+	//	}
 	
 	public void setSenhaComHash(String hash) {
 		this.password = hash;

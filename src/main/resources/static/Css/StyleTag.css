@@ -28,29 +28,34 @@
     background-color:#0D0D0D !important;
     display: flex !important;
     justify-content:space-between !important;
-    padding: 1.2em 2em !important;
-    border-radius: 0 0 2em 0 !important;
+    padding: 0.4em 1em !important;
+    border-radius: 0 0 1.2em 0 !important;
 }
 
 .Left-Header{
-    width: 40% !important;
+    width: 58% !important;
+    margin: auto 0;
+    font-size: 0;
+    font-weight: 0;
 }
 
 .Left-Header h1{
+	margin: 0;
     font-family: Urban-Blocker-Solid !important;
     color: #fff !important;
-    font-size:4vw !important;
+    font-size:4.5vw !important;
     font-weight: lighter !important;
 }
 
 .Left-Header h2{
+	margin:0;
     font-family: Roboto-Condensed !important;
     font-size:1.5vw !important;
     color: #8C8B88 !important;
 }
 
 .Right-Header{
-    width: 60% !important;
+    width: 42% !important;
     display: flex !important;
     justify-content: space-between !important;
 }
@@ -71,8 +76,8 @@
 .Menu li{
     display: block !important;
     float: left !important;
-    font-size: 2vw !important;
-    margin: 0.5em !important;
+    font-size: 1.6vw !important;
+    margin: 0.6em !important;
     color: #fff !important;
     font-family: Roboto-Bold !important;
     cursor: pointer !important;
@@ -84,6 +89,15 @@
     margin-bottom: 0.2em #A63F03 solid !important;
 }
 
+.Image-Header{
+	width: 12% !important;
+	margin: auto 0 !important;
+}
+
+.Image-Header img{
+	width: 100% !important;
+}
+
 /* Style Footer */
 
 /* Footer styling */
@@ -93,35 +107,56 @@
     background-color:#0D0D0D !important;
     display: flex;
     justify-content: space-between !important;
-    padding: 1em 2em !important;
+    padding: 0.4em 1.5em !important;
     font-family: Roboto-Bold !important;
     color: #fff;
 }
 
 .left-footer{
-    width: 52% !important;
+    width: 39% !important;
     display: flex;
     justify-content: space-between !important;
+}
+
+.Image-left-footer{
+	width: 10%;
+}
+
+.Image-left-footer img{
+	width: 100%;
 }
 
 .left-footer p{
     display: block !important;
     margin: auto 0 !important;
-    font-size:2vw !important; 
+    font-size:1.5vw !important; 
     white-space: nowrap !important;
 }
 
 .right-footer{
+	width:61%;
+	text-align:right;
     display: block !important;
     margin: auto 0 !important;
 }
 
 .right-footer p{
+	margin: auto 0;
     align-items: center !important;
-    font-size:1.7vw !important;
+    font-size:1.4vw !important;
 }
 
 .Footer-Low{
 	position: absolute !important;
 	bottom: 0 !important;
+}
+
+/* Style for error messages */
+
+.erroMsg{
+	color: #BF0F0F;
+}
+
+.sucessoMsg{
+	color: #12BF6F;
 }
