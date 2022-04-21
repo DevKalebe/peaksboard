@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.sp.drobskaep.peaksbord.annotation.Public;
 import com.example.sp.drobskaep.peaksbord.model.Administrador;
 import com.example.sp.drobskaep.peaksbord.repository.AdminRepository;
 import com.example.sp.drobskaep.peaksbord.util.HashUtil;
@@ -142,12 +143,12 @@ public class AdminController {
 		return "redirect:listaAdmin/1";
 	}
 	
-	// metodo de login
 	
 	
 	
-	@RequestMapping("login")
+	@RequestMapping("login")	@Public
 	public String login(Administrador admLogin, RedirectAttributes attr, HttpSession session){
+		admLogin.setPassword(HashUtil.hash(admLogin.getPassword()));
 		// busca o Admin no banco
 		Administrador admin = adminRepository.findByEmailAndPassword(admLogin.getEmail(), admLogin.getPassword());
 		// verifica se existe
@@ -161,6 +162,13 @@ public class AdminController {
 		}
 		
 		
+	}
+	
+	public String logout(HttpSession session) {
+		// invalída a sessão
+		session.invalidate();
+		// voltar para a página inicial
+		return "redirect:/";
 	}
 }
 

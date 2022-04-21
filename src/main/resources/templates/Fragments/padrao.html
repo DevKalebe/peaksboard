@@ -11,11 +11,11 @@
 <header class="header-Main" th:fragment="headPeaksboard">
         <div class="Left-Header">
             <h1>PeaksBoard</h1>
-            <h2>Olá Administrador</h2>
+            <h2 th:if="${session.usuarioLogado != null}" >Olá Administrador <span th:text="${session.usuarioLogado.name}"></span></h2>
         </div>
         <div class="Right-Header">
             <nav class="Menu"><!-- Não colocar como Nav pois vai pegar o css do materialize -->
-                <ul>
+                <ul th:if="${session.usuarioLogado != null}">
                     <a href="../formRegisterAdmin"><li>Administradores</li></a>
                     <a href="../FormRegisterCategory"><li>Categorias</li></a>
                     <a href="../registerSkatepark"><li>Skateparks</li></a>
