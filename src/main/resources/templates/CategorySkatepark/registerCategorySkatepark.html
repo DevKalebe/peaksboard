@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-
+<!-- Link Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<!-- Link Font Awesome -->
+<!--Link Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
-
 <!-- Link do CSS Tags-->
 <link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
+<!-- Link CSS Register Category -->
+<link rel="stylesheet" type="text/css" href="/Css/StyleRegisterCategory.css">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>PeaksBoard | Register Category</title>
 </head>
 <body>
 	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
@@ -18,36 +22,41 @@
     	<form class="formulario Form-Register" action="registerCategory" method="post">
     		<div class="container">
     			<input type="hidden" name="id" th:value="${categorySkatepark?.id}"/>
- 		
- 			
-          		<input placeholder="Informe a categoria" id="category" name="category" th:value="${categorySkatepark?.category}" type="text" class="validate">
-          		<label for="first_name">Informe a categoria de pista de skate</label>
-       		
- 		
- 		
- 			
-    		<select name="levelCategory">
-      			<option value="" disabled selected>Informe o nível para essa categoria</option>
-      			<option th:selected="${categorySkatepark?.levelCategory == 'qualquer'}" value="qualquer">Qualquer</option>
-      			<option th:selected="${categorySkatepark?.levelCategory == 'iniciante'}" value="iniciante">Iniciante</option>
-      			<option th:selected="${categorySkatepark?.levelCategory == 'profissional'}" value="profissional">Profissional</option>
-    		</select>
-    		<label>Materialize Select</label>
-
- 			<div class="input-field col s12">
-          		<input placeholder="Informe a categoria" id="keyWord" name="keyWord" th:value="${categorySkatepark?.keyWord}" type="text" class="validate">
-          		<label for="first_name">Informe as palavras chaves dessa categoria</label>
-       		</div>
- 		<button class="btn waves-effect waves-light" type="submit">Submit
-    		<i class="material-icons right">send</i>
- 		</button>
+          		<div class="container">
+          			<div class="row">
+          				<div class="col">
+          					<div class="form-floating div-input">
+          						<input placeholder="Informe a categoria" id="category" name="category" th:value="${categorySkatepark?.category}" type="text" class="form-control">
+          						<label for="first_name">Nome</label>
+          					</div>	
+          				</div>
+          				<div class="col">
+          					<div class="form-floating div-input">
+          						<select name="levelCategory" class="custom-select form-control" id="categoria">
+      								<option value="" disabled selected>Informe o nível para essa categoria</option>
+      								<option th:selected="${categorySkatepark?.levelCategory == 'qualquer'}" value="qualquer">Qualquer</option>
+      								<option th:selected="${categorySkatepark?.levelCategory == 'iniciante'}" value="iniciante">Iniciante</option>
+      								<option th:selected="${categorySkatepark?.levelCategory == 'profissional'}" value="profissional">Profissional</option>
+    							</select>
+    							<label for="categoria">Categoria</label>
+          					</div>	
+          				</div>
+          			</div>
+          		</div>
+ 				<div class="form-floating div-input">
+          			<input placeholder="Informe as palavras chaves dessa categoria" id="keyWord" name="keyWord" th:value="${categorySkatepark?.keyWord}" type="text" class=form-control>
+          			<label for="keyWord">Palavras-chave</label>
+       			</div>
+ 				<button class="btn btn-primary" type="submit">Submit</button>
     		</div>
-   	 		
     	</form>
-  
-  	<div th:replace="fragments/mensagem"/>
-	</main>
-	
+  		<div th:replace="fragments/mensagem"/>
+	</main>	
 	<footer th:replace="Fragments/padrao :: footerPeaksboard-Low"/>
+	<!-- Script Bootstrap -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </body>
 </html>

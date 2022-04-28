@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;;
+}
+
+.Main-Register{
+	width: 95%;
+	margin: 2em auto;
+	padding: 1em;
+	background-color: #0D0D0D;
+}
+
+.Main-Register h1{
+	font-size: 2.5vw;
+	font-family: Roboto-Bold;
+	color: #fff;
+}
+
+.Form-Register{
+	width: 100%;
+	text-align: center;
+	
+}
+
+.Form-Register button{
+	background-color: #A63F03;
+	border-color: #000;
+	font-family: Roboto-Condensed;
+	font-weight: bold !important;
+	font-size: 1.4vw;
+	float: right;
+	align-content: flex-end;
+}
+
+.Form-Register button:hover{
+	background-color: #000;
+	border-color: #0D0D0D;
+}
+
+.div-input{
+	margin: 1em 0;
+}
