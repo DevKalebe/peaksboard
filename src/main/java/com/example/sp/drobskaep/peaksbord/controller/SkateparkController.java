@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.sp.drobskaep.peaksbord.annotation.Public;
 import com.example.sp.drobskaep.peaksbord.model.SkatePark;
 import com.example.sp.drobskaep.peaksbord.repository.CategorySkateparkRepository;
 import com.example.sp.drobskaep.peaksbord.repository.SkateparkRepository;
@@ -32,7 +33,8 @@ public class SkateparkController {
 	private SkateparkRepository repSkate;
 	@Autowired
 	private FirebaseUtil fireUtil;
-
+	
+	@Public
 	@RequestMapping("registerSkatepark")
 	public String formSkatepark(Model model) {
 
@@ -42,6 +44,7 @@ public class SkateparkController {
 	}
 
 	// Metodo que salva no banco de dados
+	@Public
 	@RequestMapping("saveSkatepark")
 	public String saveSkatepark(SkatePark skatepark, @RequestParam("photoSk") MultipartFile[] photoSk,
 			RedirectAttributes attr, BindingResult result) {
@@ -88,6 +91,7 @@ public class SkateparkController {
 	}
 
 	// metodo que lista as skateparks cadastradas
+	@Public
 	@RequestMapping("listaSkatepark/{page}")
 	public String listaSkateparks(Model model, @PathVariable("page") int page) {
 
@@ -115,7 +119,8 @@ public class SkateparkController {
 
 		return "Skatepark/listSkatepark";
 	}
-
+	
+	@Public
 	@RequestMapping("alterarSkatepark")
 	public String alterarSkatepark(Long id, Model model) {
 

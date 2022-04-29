@@ -14,7 +14,7 @@ import com.example.sp.drobskaep.peaksbord.model.SkatePark;
 import com.example.sp.drobskaep.peaksbord.repository.SkateparkRepository;
 
 @RestController
-@RequestMapping("/api/skateparks")
+@RequestMapping("/api/skatepark")
 public class SkateparkRestController {
 	
 	
@@ -44,5 +44,10 @@ public class SkateparkRestController {
 	public Iterable<SkatePark> getSkateparkCategory(@PathVariable("category") Long categoriaSk) {
 	
 		return repository.findByCategorySkId(categoriaSk);
+	}
+	
+	public ResponseEntity<Void> deleteUser(Long idUsuario) {
+		repository.deleteById(idUsuario);
+		return ResponseEntity.noContent().build();
 	}
 }

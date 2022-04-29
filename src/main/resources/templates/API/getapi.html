@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Consumindo API</title>
+</head>
+
+<body>
+    <h1>Restaurantes</h1>
+    <ul id="restaurantes">
+
+    </ul>
+</body>
+
+<script>
+    const ul = document.getElementById('skateparks')
+    const url = 'http://localhost:8080/api/skatepark'
+
+    fetch(url)
+        .then((resp) => resp.json())
+        .then(data => {
+            let restaurantes = data
+            return restaurantes.map((skatepark) => {
+                let li = createNode('li')
+                
+                let span = createNode('span')
+                span.innerHTML = `${skatepark.nameSk} | Endereço: ${skatepark.addressSk}`
+                
+                append(li, span)
+                const fotos = restaurante.photo.split(';').map(foto => {
+                    let br = createNode('br')
+                    append(li, br)
+                    let img = createNode('img')
+                    img.width = '300'
+                    img.src = foto
+                    append(li, img)
+                })
+                
+                
+                append(ul, li)
+            })
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+    function createNode(element) {
+        return document.createElement(element)
+    }
+
+    function append(parent, el) {
+        return parent.appendChild(el);
+    }
+</script>
+
+</html>
