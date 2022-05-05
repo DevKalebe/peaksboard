@@ -114,16 +114,16 @@
 
 .left-footer{
     width: 39% !important;
-    display: flex;
+    display: flex !important;
     justify-content: space-between !important;
 }
 
 .Image-left-footer{
-	width: 10%;
+	width: 10% !important;
 }
 
 .Image-left-footer img{
-	width: 100%;
+	width: 100% !important;
 }
 
 .left-footer p{

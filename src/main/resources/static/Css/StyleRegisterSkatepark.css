@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "ISO-8859-1";
 
 *{
 	margin: 0;
@@ -6,12 +6,12 @@
 	box-sizing: border-box;;
 }
 
+/* Stylization of where the content is located */
+
 .Main-Register{
 	width: 95%;
-
 	margin: 2em auto;
 	padding: 1em;
-	border-radius: 5px;
 	background-color: #0D0D0D;
 }
 
@@ -21,10 +21,19 @@
 	color: #fff;
 }
 
+/* Start styling the form */
+
 .Form-Register{
 	width: 100%;
 	text-align: center;
 	
+}
+
+/* Styling the textarea label */
+
+Label-Textarea{
+	text-align: left !important;
+	color: #FFF !important;
 }
 
 /* Forms button style */
@@ -36,6 +45,7 @@
 
 .Form-Register button{
 	background-color: #A63F03;
+	border-radius: 5px;
 	border-color: #000;
 	font-family: Roboto-Condensed;
 	font-weight: bold !important;

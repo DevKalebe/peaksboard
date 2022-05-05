@@ -1,124 +1,151 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-
+<head>
+<!-- Link Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<!--Link Jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/Css/StyleListAdmin.css"/>
 <!-- Link do CSS Tags-->
 <link rel="stylesheet" type="text/css" href="/Css/StyleTag.css"/>
-
-<head>
+<!-- Link CSS Register Skatepark -->
+<link rel="stylesheet" type="text/css" href="/Css/StyleRegisterSkatepark.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>PeaksBoard | Registro Skateparks</title>
 </head>
 <body>
 	<header th:replace="Fragments/padrao :: headPeaksboard"></header>
-	<main class="sizeMain">
-		<div class="row">
-		<form class="col s12" action="saveSkatepark" method="post" enctype="multipart/form-data">
+	<main class="Main-Register">
+		<h1>Registre a Skatepark</h1>
+		<form class="formulario Form-Register" action="saveSkatepark" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" th:value="${skatepark?.id}"/>
 			<input type="hidden" name="photo" th:value="${skatepark?.photo}"/>
 			<div class="row">
-				<div class="input-field col s12">
-          		<input placeholder="Informe o nome" id="nameSkatepark" name="nameSk" th:value="${skatepark?.nameSk}" type="text" class="validate">
-          		<label for="first_name">Nome</label>
-       			</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<select name="categorySk.id">
-      				<option value="" disabled selected>Informe a categoria da Skatepark</option>
-      				<option th:each="c:${categorys}" th:text="${c.category}" th:value="${c.id}"></option>			
+				<div class="col">
+					<div class="form-floating div-input">
+          				<input placeholder="Informe o nome" id="nameSkatepark" name="nameSk" th:value="${skatepark?.nameSk}" type="text" class="form-control">
+          				<label for="nameSkatepark">Nome</label>
+       				</div>
+				</div>
+				<div class="col">
+					<div class="form-floating div-input">
+					<select name="categorySk.id" class="custom-select form-control" id="categorySk">
+      					<option value="" disabled selected>Informe a categoria da Skatepark</option>
+      					<option th:each="c:${categorys}" th:text="${c.category}" th:value="${c.id}"></option>			
     				</select>
+    				<label for="categorySk">Categoria</label>
 				</div>
-			</div>
+				</div>		
+			</div>	
 			<div class="row">
-				<div class="input-field col s12">
-    			<select name="levelSk">
-      				<option value="" disabled selected>Informe o nível</option>
-      				<option th:selected="${skatepark?.levelSk == 'qualquer'}" value="qualquer">Qualquer</option>
-      				<option th:selected="${skatepark?.levelSk == 'iniciante'}" value=iniciante>Iniciante</option>
-      				<option th:selected="${skatepark?.levelSk == 'profissional'}" value="profissional">Profissional</option>
-    			</select>
-    			<label>Nível</label>
+				<div class="col">
+					<div class="form-floating div-input">
+    					<select name="levelSk" id="levelSk" class="custom-select form-control">
+      						<option value="" disabled selected>Informe o nível</option>
+      						<option th:selected="${skatepark?.levelSk == 'qualquer'}" value="qualquer">Qualquer</option>
+      						<option th:selected="${skatepark?.levelSk == 'iniciante'}" value=iniciante>Iniciante</option>
+      						<option th:selected="${skatepark?.levelSk == 'profissional'}" value="profissional">Profissional</option>
+    					</select>
+    					<label for="levelSk">Nível</label>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-    			<select name="spaceSk">
-      				<option value="" disabled selected>Informe o tamanho</option>
-      				<option th:selected="${skatepark?.spaceSk == 'pequeno'}" value="pequeno">Pequeno</option>
-      				<option th:selected="${skatepark?.spaceSk == 'medio'}" value="medio">Médio</option>
-      				<option th:selected="${skatepark?.spaceSk == 'grande'}" value="grande">Grande</option>
-    			</select>
-    			<label>Tamanho do espaço</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-          			<input placeholder="Informe o horário" id="timeSk" name="timeSk" th:value="${skatepark?.timeSk}" type="text" class="validate">
-          			<label for="first_name">Horário</label>
-       			</div>
+				<div class="col">
+					<div class="form-floating div-input">
+    					<select name="spaceSk" id="spaceSk" class="custom-select form-control">
+      						<option value="" disabled selected>Informe o tamanho</option>
+      						<option th:selected="${skatepark?.spaceSk == 'pequeno'}" value="pequeno">Pequeno</option>
+      						<option th:selected="${skatepark?.spaceSk == 'medio'}" value="medio">Médio</option>
+      						<option th:selected="${skatepark?.spaceSk == 'grande'}" value="grande">Grande</option>
+    					</select>
+    					<label for="spaceSk">Tamanho do espaço</label>
+					</div>
+				</div>	
 			</div>
 			
 			<div class="row">
-				<div class="input-field col s12">
-          			<input placeholder="Informe o CEP" id="cep" name="cepSk" th:value="${skatepark?.cepSk}" type="text" class="validate">
-          			<label for="first_name">CEP</label>
+       			<div class="col">
+       				<div class="form-floating div-input">
+          				<input placeholder="Informe o horário" id="timeSk" name="timeSk" th:value="${skatepark?.timeSk}" type="text" class="form-control">
+          				<label for="timeSk">Horário</label>
+       				</div>
        			</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-          			<input placeholder="Informe o Endereço" id="logradouro" name="addressSk" th:value="${skatepark?.addressSk}" type="text" class="validate">
-          			<label for="first_name">Endereço</label>
-       			</div>	
-				<div class="input-field col s6">
-					<input placeholder="Informe um complemento" id="complemento" name="complementSk" th:value="${skatepark?.complementSk}" type="text" class="validate">
-          			<label for="first_name">Complemento</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-          			<input placeholder="Informe a cidade" id="localidade" name="citySk" th:value="${skatepark?.citySk}" type="text" class="validate">
-          			<label for="first_name">Cidade</label>
+       			<div class="col">
+				<div class="form-floating div-input">
+          			<input placeholder="Informe o CEP" id="cep" name="cepSk" th:value="${skatepark?.cepSk}" type="text" class="form-control">
+          			<label for="cep">CEP</label>
        			</div>
-       			<div class="input-field col s6">
-          			<input placeholder="Informe o estado" id="uf" name="stateSk" th:value="${skatepark?.stateSk}" type="text" class="validate">
-          			<label for="first_name">Estado</label>
-       			</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<input placeholder="Informe palavras chaves" id="keyWordsk" name="keyWordSk" th:value="${skatepark?.keyWordSk}" type="text" class="validate">
-          			<label for="first_name">Palavras Chave</label>
 				</div>
 			</div>
+			
+			
 			<div class="row">
-				<div class="input-field col s12">
-    			<select name="materialSk">
-      				<option value="" disabled selected>Informe o material</option>
-      				<option th:selected="${skatepark?.materialSk == 'madeira'}" value="madeira">Pequeno</option>
-      				<option th:selected="${skatepark?.materialSk == 'cimento'}" value="cimento">Cimento</option>
-    			</select>
-    			<label>Como é feita</label>
+				<div class="col">
+					<div class="form-floating div-input">
+          				<input placeholder="Informe o Endereço" id="logradouro" name="addressSk" th:value="${skatepark?.addressSk}" type="text" class="form-control">
+          				<label for="first_name">Endereço</label>
+       				</div>
 				</div>
-			</div>	
+				<div class="col">
+					<div class="form-floating div-input">
+						<input placeholder="Informe um complemento" id="complemento" name="complementSk" th:value="${skatepark?.complementSk}" type="text" class="form-control">
+          				<label for="first_name">Complemento</label>
+					</div>
+				</div>	
+				
+			</div>
 			<div class="row">
-				<div class="input-field col s12">
-    			<select name="accessSk">
-      				<option value="" disabled selected>Informe o tamanho</option>
-      				<option th:selected="${skatepark?.accessSk == 'privado'}" value="privado">Privado</option>
-      				<option th:selected="${skatepark?.accessSk == 'publico'}" value="publico">Público</option>
-    			</select>
-    			<label>Acesso ao espaço</label>
+				<div class="col">
+					<div class="form-floating div-input">
+          				<input placeholder="Informe a cidade" id="localidade" name="citySk" th:value="${skatepark?.citySk}" type="text" class="form-control">
+          				<label for="first_name">Cidade</label>
+       				</div>
+				</div>
+				<div class="col">
+					<div class="form-floating div-input">
+          				<input placeholder="Informe o estado" id="uf" name="stateSk" th:value="${skatepark?.stateSk}" type="text" class="form-control">
+          				<label for="first_name">Estado</label>
+       				</div>
+				</div>	
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-floating div-input">
+						<input placeholder="Informe palavras chaves" id="keyWordsk" name="keyWordSk" th:value="${skatepark?.keyWordSk}" type="text" class="form-control">
+          				<label for="keyWordsk">Palavras Chave</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-floating div-input">
+    					<select name="materialSk" class="custom-select form-control">
+      						<option value="" disabled selected>Informe o material</option>
+      						<option th:selected="${skatepark?.materialSk == 'madeira'}" value="madeira">Pequeno</option>
+      						<option th:selected="${skatepark?.materialSk == 'cimento'}" value="cimento">Cimento</option>
+    					</select>
+    					<label>Como é feita</label>
+					</div>
 				</div>
 			</div>
-      		<div class="row">
-        		<div class="input-field col s12">
-          			<textarea id="textarea1" class="materialize-textarea" th:text="${skatepark?.descSk}" name="descSk"></textarea>
-          			<label for="textarea1">Descrição</label>
-        		</div>
-      		</div>
+				
+		
+				<div class="col">
+					<div class="form-floating div-input">
+						<select name="accessSk" class="custom-select form-control">
+      						<option value="" disabled selected>Informe o tamanho</option>
+      						<option th:selected="${skatepark?.accessSk == 'privado'}" value="privado">Privado</option>
+      						<option th:selected="${skatepark?.accessSk == 'publico'}" value="publico">Público</option>
+    					</select>
+    					<label>Acesso ao espaço</label>
+					</div>
+				</div>
+				<div class="col">
+        			<div class="form-group Label-Textarea">
+        				<label for="descSK" >Descrição</label>
+          				<textarea class="form-control" rows="3" id="descSK" th:text="${skatepark?.descSk}" name="descSk"></textarea>
+        			</div>
+      			</div>
+			
+      		
       		
       		<div class="row">
       			<div class="input-field col s12">
@@ -152,9 +179,15 @@
     			<i class="material-icons right">send</i>
   			</button>
 		</form>
-		</div>
+		
 	</main>
-	<footer th:replace="Fragments/padrao :: footerPeaksboard-Low">></footer>
+	<footer th:replace="Fragments/padrao :: footerPeaksboard"/>
+	<!-- Usar o Json que busca o endereço conforme o CEP -->
 	<script type="text/javascript" src="Js/scriptJsonCep.js"></script>
+	<!-- Script Bootstrap -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </body>
 </html>
