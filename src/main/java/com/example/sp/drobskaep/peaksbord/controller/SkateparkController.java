@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.sp.drobskaep.peaksbord.annotation.Private;
 import com.example.sp.drobskaep.peaksbord.annotation.Public;
 import com.example.sp.drobskaep.peaksbord.model.SkatePark;
 import com.example.sp.drobskaep.peaksbord.repository.CategorySkateparkRepository;
@@ -44,7 +45,7 @@ public class SkateparkController {
 	}
 
 	// Metodo que salva no banco de dados
-	@Public
+	@Private
 	@RequestMapping("saveSkatepark")
 	public String saveSkatepark(SkatePark skatepark, @RequestParam("photoSk") MultipartFile[] photoSk,
 			RedirectAttributes attr, BindingResult result) {
@@ -120,7 +121,7 @@ public class SkateparkController {
 		return "Skatepark/listSkatepark";
 	}
 	
-	@Public
+	@Private
 	@RequestMapping("alterarSkatepark")
 	public String alterarSkatepark(Long id, Model model) {
 
@@ -144,6 +145,7 @@ public class SkateparkController {
 		return "redirect:listaSkatepark/1";
 	}
 
+	@Private
 	@RequestMapping("excluirFotos")
 	public String excluirFotos(Long idSk, int numFoto, Model model) {
 		// busca o Restaurante

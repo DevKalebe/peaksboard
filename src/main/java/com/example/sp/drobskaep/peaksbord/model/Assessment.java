@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.google.gson.annotations.JsonAdapter;
 
 import lombok.Data;
 
@@ -17,7 +20,7 @@ import lombok.Data;
 public class Assessment {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
+	@ManyToOne	@JsonProperty(access = Access.WRITE_ONLY)
 	private SkatePark skatePark;
 	private double note;
 	private String comment;

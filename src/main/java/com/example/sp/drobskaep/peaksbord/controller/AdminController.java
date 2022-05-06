@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.sp.drobskaep.peaksbord.annotation.Private;
 import com.example.sp.drobskaep.peaksbord.annotation.Public;
 import com.example.sp.drobskaep.peaksbord.model.Administrador;
 import com.example.sp.drobskaep.peaksbord.repository.AdminRepository;
@@ -31,6 +32,7 @@ public class AdminController {
 	@Autowired
 	private AdminRepository adminRepository;
 	
+	@Private
 	@RequestMapping("formRegisterAdmin")
 	public String formRegisterAdmin() {
 		
@@ -38,6 +40,7 @@ public class AdminController {
 	}
 	
 	// Requst ,apping para salvar o admin, do tipo post
+	@Private
 	@RequestMapping(value = "registerAdmin", method = RequestMethod.POST)
 	public String registerAdimn(@Valid Administrador admin, BindingResult result, RedirectAttributes attr) {
 		
@@ -104,6 +107,7 @@ public class AdminController {
 	}
 		
 	//Request para lista de admin
+	@Private
 	@RequestMapping("listaAdmin/{page}")
 	public String listaAdmin(Model model, @PathVariable("page") int page) {
 		// cria um pageable informando os parâmetros da página
@@ -128,6 +132,7 @@ public class AdminController {
 		return "Admin/listAdmin";
 	}
 	
+	@Private
 	@RequestMapping("alterarAdmin")
 	public String alterarAdmin(Long id, Model model) {
 		Administrador administrador = adminRepository.findById(id).get();
@@ -136,14 +141,13 @@ public class AdminController {
 		return "forward:formRegisterAdmin";
 	}
 	
+	@Private
 	@RequestMapping("excluirAdmin")
 	private String excluirAdmin(Long id) {
 		
 		adminRepository.deleteById(id);
 		return "redirect:listaAdmin/1";
 	}
-	
-	
 	
 	
 	@RequestMapping("login")	@Public
@@ -164,6 +168,7 @@ public class AdminController {
 		
 	}
 	
+	@Private
 	public String logout(HttpSession session) {
 		// invalída a sessão
 		session.invalidate();

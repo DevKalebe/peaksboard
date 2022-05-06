@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.sp.drobskaep.peaksbord.annotation.Private;
 import com.example.sp.drobskaep.peaksbord.model.CategorySkatepark;
 import com.example.sp.drobskaep.peaksbord.repository.CategorySkateparkRepository;
 
@@ -28,6 +29,7 @@ public class CaterogySkateparkController {
 	private CategorySkateparkRepository categoryRepository;
 	
 	// Metodo Get para o formulario de registro de categorias
+	@Private
 	@RequestMapping("FormRegisterCategory")
 	public String formRegisterSkatepark() {
 
@@ -36,6 +38,7 @@ public class CaterogySkateparkController {
 	}
 	
 	// Metodo para salvar a categoria
+	@Private
 	@RequestMapping(value= "registerCategory", method = RequestMethod.POST)
 	public String registerSkatepark(@Valid CategorySkatepark categorySkatepark, BindingResult result, RedirectAttributes attr) {
 		
@@ -57,6 +60,7 @@ public class CaterogySkateparkController {
 	}
 
 	// Metodo para listar as categorys
+	@Private
 	@RequestMapping("listCategory/{page}")
 	public String listCategory(Model model, @PathVariable("page") int page) {
 		PageRequest pageable = PageRequest.of(page-1, 6, Sort.by(Sort.Direction.ASC, "category"));
@@ -77,6 +81,7 @@ public class CaterogySkateparkController {
 	}
 	
 	// metodo para alterar as categorias
+	@Private
 	@RequestMapping("changeCategory")
 	public String alterCategory(Long id, Model model) {
 		CategorySkatepark categorySkatepark = categoryRepository.findById(id).get();
@@ -86,6 +91,7 @@ public class CaterogySkateparkController {
 	}
 	
 	// metodo para deletar as categorias
+	@Private
 	@RequestMapping("deleteCategory")
 	public String deletecategory(Long id) {
 		
@@ -94,7 +100,7 @@ public class CaterogySkateparkController {
 	}
 	
 	// metodo para buscar as categorias
-	
+	@Private
 	@RequestMapping("listSearch")
 	public String searchCategory(Model model, String searchCategory, String choiceCategory) {
 		
